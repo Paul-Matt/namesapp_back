@@ -8,20 +8,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-
 import com.names.app.domain.Name;
 import com.names.app.domain.NameRepository;
 
-
-
 @SpringBootApplication
-public class NameApplication extends SpringBootServletInitializer{
-	
+public class NameApplication extends SpringBootServletInitializer {
+
 	private static final Logger log = LoggerFactory.getLogger(NameApplication.class);
-	
+
 	@Autowired
-	
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 		SpringApplication.run(NameApplication.class, args);
 	}
 
@@ -51,5 +47,6 @@ public class NameApplication extends SpringBootServletInitializer{
 			repository.save(new Name("Suvi", 4));
 		};
 	}
+
 
 }
