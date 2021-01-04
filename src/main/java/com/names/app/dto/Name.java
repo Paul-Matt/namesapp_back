@@ -1,18 +1,8 @@
-package com.names.app.domain;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.names.app.dto;
 
 import org.springframework.lang.NonNull;
 
-
-@Entity
-public class Name {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+public class Name{
 	@NonNull
 	private String name;
 	private int amount;
@@ -42,16 +32,18 @@ public class Name {
 		this.amount = amount;
 	}
 
+	//Frontend needs a unique id per item, the hashcode can do the trick
 	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+		return hashCode();
 	}
 
 	@Override
 	public String toString() {
-		return "Name [id=" + id + ", name=" + name + ", amount=" + amount + "]";
+		return String.format("Name [id= %d , name= %s, amount= %d]", hashCode(), name, amount);
+	}
+	
+	@Override
+	public int hashCode() {
+		return name.hashCode() * 13 + amount * 11; 
 	}
 }
