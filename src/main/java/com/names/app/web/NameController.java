@@ -26,9 +26,9 @@ public class NameController {
 	private void parseNameList() throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper om = new ObjectMapper();
 		names = om.readValue(new File("src/main/resources/static/names.json"), Names.class).getNames();
-		
+
 	}
-	
+
 	@GetMapping("/names")
 	public Iterable<Name> getNames() {
 		return names;

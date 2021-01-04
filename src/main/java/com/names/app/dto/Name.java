@@ -2,7 +2,7 @@ package com.names.app.dto;
 
 import org.springframework.lang.NonNull;
 
-public class Name{
+public class Name {
 	@NonNull
 	private String name;
 	private int amount;
@@ -32,7 +32,7 @@ public class Name{
 		this.amount = amount;
 	}
 
-	//Frontend needs a unique id per item, the hashcode can do the trick
+	// Frontend needs a unique id per item, the hashcode can do the trick
 	public long getId() {
 		return hashCode();
 	}
@@ -41,9 +41,9 @@ public class Name{
 	public String toString() {
 		return String.format("Name [id= %d , name= %s, amount= %d]", hashCode(), name, amount);
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return name.hashCode() * 13 + amount * 11; 
+		return name.hashCode() * 13 + amount * 11;
 	}
 }
